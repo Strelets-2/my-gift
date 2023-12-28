@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyGift</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <!-- Подключаем библиотеку imask для input -->
+  <script src="https://unpkg.com/imask" defer></script>
+  <!-- Подключаем библиотеку для валидации форм validate.js -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+</head>
+
+<body class="body body--gift">
+
+  <header class="header">
+    <div class="container">
+      <img class="header__logo" src="img/logo.svg" width="180" height="48" alt="Логотип проекта MyGift">
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="gift">
+      <div class="container">
+        <h1 class="gift__title">Поздравьте близкого человека с&nbsp;праздником!</h1>
+        <p class="gift__description">Выберите открытку и получатель получит ее на свой телефон</p>
+        <div class="gift__wrap">
+          <div class="gift__card">
+
+            <!--  Копируем с сайта swiper.com-->
+            <!-- Slider main container -->
+            <!-- Добавляем свои слассы  gift__swiper и gift__swiper--card -->
+            <div class="swiper gift__swiper gift__swiper--card">
+              <div class="swiper-wrapper">
+                <!-- Всем добавляем класс gift__card-slide -->
+                <div class="swiper-slide gift__card-slide">
+                  <img class="gift__card-image" src="img/card_01.jpg" data-card="card_01" alt="Открытка №1">
+                </div>
+                <div class="swiper-slide gift__card-slide">
+                  <img class="gift__card-image" src="img/card_02.jpg" data-card="card_02" alt="Открытка №2">
+                </div>
+                <div class="swiper-slide gift__card-slide">
+                  <img class="gift__card-image" src="img/card_03.jpg" data-card="card_03" alt="Открытка №3">
+                </div>
+                <div class="swiper-slide gift__card-slide">
+                  <img class="gift__card-image" src="img/card_04.jpg" data-card="card_04" alt="Открытка №4">
+                </div>
+                <div class="swiper-slide gift__card-slide">
+                  <img class="gift__card-image" src="img/card_05.jpg" data-card="card_05" alt="Открытка №5">
+                </div>
+              </div>
+            </div>
+
+            <!-- Добавляем свои слассы  gift__swiper и gift__swiper--thumb -->
+            <div class="swiper gift__swiper gift__swiper--thumb">
+              <div class="swiper-wrapper">
+                <!-- Всем добавляем класс gift__card-thumb -->
+
+                <div class="swiper-slide gift__card-thumb">
+                  <img class="gift__card-image" src="img/card_01.jpg" alt="Открытка №1">
+                </div>
+                <div class="swiper-slide gift__card-thumb">
+                  <img class="gift__card-image" src="img/card_02.jpg" alt="Открытка №2">
+                </div>
+                <div class="swiper-slide gift__card-thumb">
+                  <img class="gift__card-image" src="img/card_03.jpg" alt="Открытка №3">
+                </div>
+                <div class="swiper-slide gift__card-thumb">
+                  <img class="gift__card-image" src="img/card_04.jpg" alt="Открытка №4">
+                </div>
+                <div class="swiper-slide gift__card-thumb">
+                  <img class="gift__card-image" src="img/card_05.jpg" alt="Открытка №5">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="gift__form form">
+
+            <label class="form__label">
+              <span class="form__label-text">от кого</span>
+              <input class="form__field" type="text" name="sender_name">
+            </label>
+
+            <label class="form__label">
+              <span class="form__label-text">телефон отправителя</span>
+              <input class="form__field form__field--phone" type="text" name="sender_phone">
+            </label>
+
+            <label class="form__label">
+              <span class="form__label-text">кому</span>
+              <input class="form__field" type="text" name="receiver_name">
+            </label>
+
+            <label class="form__label">
+              <span class="form__label-text">телефон получателя</span>
+              <input class="form__field form__field--phone" type="text" name="receiver_phone">
+            </label>
+
+            <label class="form__label form__label--textarea">
+              <span class="form__label-text">поздравительный текст</span>
+              <textarea class="form__field form__field--textarea" name="massege"
+                placeholder="Напишите теплые слова"></textarea>
+            </label>
+
+            <!-- Добавляем скрытый инпут для добавления карточки которую будем отправлять-->
+            <input class="form__card" type="hidden" name="card">
+
+            <!-- Добавляем атрибут disabled чтобы кнопка была не активной и мы не могли бы отправить форму пока она не заполнена -->
+            <button class="form__button" type="submit" disabled>Отправить</button>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/nunito-v26-cyrillic_latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/nunito-v26-cyrillic_latin-700.woff2') format('woff2');
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  /* берем минимальную ширину по макету */
+  min-width: 320px;
+  /* ракрываем bady на весь экран по высоте */
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  /* для Safari */
+  -webkit-font-smoothing: antialiased;
+  /* для Firefox */
+  -moz-osx-font-smoothing: grayscale;
+  /* для Chrome */
+  text-rendering: optimizeLegibility;
+  /* для IE */
+  -ms-text-size-adjust: 100%;
+  /* для Edge */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #221F1F;
+}
+
+.body--gift {
+  background: #B2E8E8 url('../img/bg-gift.jpg') center/cover;
+}
+
+.body--congratulation {
+  background: #FCC5BD url('../img/bg-congratulation.jpg') center/cover;
+}
+
+.container {
+  max-width: 1260px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 40px 0;
+}
+
+.header__logo {
+  display: block;
+  max-width: 100%;
+  /* Высота автоматически подстраивается под ширину */
+  height: auto;
+}
+
+.gift {
+  padding: 20px 0 80px;
+}
+
+.gift__title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.gift__description {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 47px;
+}
+
+.gift__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 96px;
+}
+
+.gift__card {
+  /* ширина кароточки ровна 50% от ширины контейнера - 16px. При таком указании ширины блок будет сжимаься при адаптиве*/
+  width: calc(50% - 16px);
+}
+
+.gift__swiper--card {
+  margin-bottom: 20px;
+}
+
+.gift__card-slide {
+  border-radius: 20px;
+  border: 2px solid #4BAA00;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gift__card-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.gift__card-thumb {
+  width: 72px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gift__form {
+  max-width: 480px;
+  width: 100%;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  justify-items: start;
+}
+
+.form__label {
+  width: 100%;
+}
+
+.form__label-text {
+  display: block;
+  margin-bottom: 4px;
+  /* Запрещаем перенос слов на другую строку при адаптиве */
+  white-space: nowrap;
+}
+
+.form__field {
+  font: inherit;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #DEDEDE;
+  background-color: #FBFBFB;
+  padding: 8px 16px;
+  outline: none;
+}
+
+.form__field:hover,
+.form__field:focus-visible,
+.form__field:active {
+  border-color: #999;
+}
+
+.form__label--textarea {
+  /* Растягиваем элемент на весь блок */
+  grid-column: 1 / -1;
+}
+
+.form__field--textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form__button {
+  color: #FFF;
+  font-weight: 700;
+  border-radius: 32px;
+  background-color: #4BAA00;
+  /* Прописываем прозрачный бордер, чтобы потом при клике сделать видимым */
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 8px 24px;
+}
+
+/* При hover меняется цвет если кнопка не disabled */
+.form__button:hover:not(:disabled) {
+  background-color: #58C601;
+}
+
+.form__button:focus-visible {
+  border-color: #58C601;
+}
+
+.form__button:active:not(:disabled) {
+  /* При клике кнопка будет смещаться на 2pxесли она не disabled*/
+  transform: translate(2px, 2px);
+}
+
+.form__button:disabled {
+  opacity: 0.4;
+}
+
+
+.congratulation {
+  padding: 20px 0 145px;
+}
+
+.congratulation__title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.congratulation__description {
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 50px;
+}
+
+.congratulation__card {
+  margin: 0 auto;
+}
+
+.card {
+  /* Т.к. картинка внутри карточки будет разворачиватся задаем ей свойство position: relative */
+  position: relative;
+  max-width: 580px;
+  height: 375px;
+  /* См. день 3 интенсива курса вр. 6:45 */
+  perspective: 1000px;
+}
+
+
+.card__inner {
+  /* Указываем стиль разворота */
+  transform-style: preserve-3d;
+  /* Плавно разворачиваем коарточку за 1 сек */
+  transition: transform 1s;
+  /* Карточкку расягиваем на 100% */
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__front {
+  position: absolute;
+  /* Это все равно что top 0 left 0 */
+  inset: 0;
+  /* См. день 3 интенсива курса вр. 6:45 */
+  backface-visibility: hidden;
+  /* border-radius: 20px;
+  overflow: hidden; */
+}
+
+.card__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card__back {
+  position: absolute;
+  padding: 32px;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  background-color: #FFF;
+  /* Карточку поворачиваем на 180 градусов по горизонтали */
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 24px;
+
+}
+
+.card__title {
+  color: #F44;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.card__detail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.card__detail:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.card__subtitle {
+  opacity: 0.3;
+  min-width: 54px;
+}
+
+.card__message {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Эта запись по старому */
+/* @media (max-width: 1080px) {} */
+
+/* Эта запись по новому */
+@media (width <=1080px) {
+  .header {
+    padding: 32px 0 16px;
+  }
+
+  .gift {
+    padding: 16px 0 34px;
+  }
+
+  .gift__title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .gift__description {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .gift__card {
+    padding-top: 8px;
+    max-width: 464px;
+    width: 100%;
+  }
+
+  .gift__form {
+    max-width: 384px;
+  }
+
+  .form {
+    row-gap: 12px;
+  }
+
+  .congratulation__title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .congratulation__description {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (width <=980px) {
+  .container {
+    padding: 0 44px;
+  }
+
+  .gift__wrap {
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+
+  .gift__form {
+    max-width: 100%;
+  }
+}
+
+@media (width <=580px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    padding-top: 24px;
+  }
+
+  .gift__card-thumb {
+    width: 56px;
+    border-radius: 4px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    height: calc(186 / 288 * 100vw - 20px);
+    margin-bottom: 20px;
+  }
+
+  .card__back {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .card__title {
+    font-size: 20px;
+    /* margin-bottom: 16px; */
+  }
+
+  .card__message {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .card__subtitle {
+    opacity: 0.5;
+  }
+}
