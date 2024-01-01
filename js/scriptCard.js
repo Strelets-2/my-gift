@@ -8,10 +8,13 @@ const cardImage = document.querySelector('.card__image');
 const cardFrom = document.querySelector('.card__from');
 const cardTo = document.querySelector('.card__to');
 const cardMessage = document.querySelector('.card__message');
+
+// Создаем медиазапрос через javascript
+const mediaQuery = window.matchMedia("(max-width: 580px)");
+
 // Создадим функцию перемещения блока с контактами в зависимости от ширины экрана
-const rearrangeElement = () => {
-  const screenWidth = window.innerWidth;
-  if (screenWidth <= 580) {
+const rearrangeElement = (e) => {
+  if (e.matches) {
     card.after(cardContacts);
   } else {
     cardTitle.after(cardContacts);
@@ -42,8 +45,8 @@ const getGiftData = async (id) => {
 
 // создадим функцию которая будет запускать функцию перемещения блока с контактами при изменении размера окна
 const init = async () => {
-  rearrangeElement();
-  window.addEventListener('resize', rearrangeElement);
+  rearrangeElement(mediaQuery);
+  mediaQuery.addEventListener('change', rearrangeElement);
   // находим id карточки из её URL адреса
   const id = getIdFromUrl();
 
